@@ -91,10 +91,7 @@ def compute_mlink(G):
         for j in range(i):
             all_edges.append( (i,j))
 
-    mlink_edges = []
-    for e in tqdm(all_edges):
-        mlink_edges.append(mlink_func(all_shortest_paths, G, e))
-
+    mlink_edges = [mlink_func(all_shortest_paths, G, e) for e in tqdm(all_edges)]
     #convert the output to a matrix
     mlink = np.zeros([len(G), len(G)])
     for i, e in enumerate(all_edges):

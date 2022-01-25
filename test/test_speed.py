@@ -26,10 +26,7 @@ times = []
 Ns = np.arange(20, 220, 20)
 print(Ns)
 for n in tqdm(Ns):
-    times_tmp = []
-    for k in range(K):
-        times_tmp.append(test_RMST(n))
-
+    times_tmp = [test_RMST(n) for _ in range(K)]
     times.append(np.mean(times_tmp))
 
 plt.figure(figsize=(6,5))
